@@ -14,7 +14,7 @@ it('returns a 404 when purchasing an order that does not exist', async () => {
       token: 'asldkfj',
       orderId: mongoose.Types.ObjectId().toHexString(),
     })
-    .expect(404);
+    .expect(400);
 });
 
 it('returns a 401 when purchasing an order that doesnt belong to the user', async () => {
@@ -70,7 +70,7 @@ it('returns a 201 with valid inputs', async () => {
   });
   await order.save();
 
-  console.log("price",price)
+  console.log("price", price)
 
   await request(app)
     .post('/api/payments')
