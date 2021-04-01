@@ -14,7 +14,7 @@ it('returns a 404 when purchasing an order that does not exist', async () => {
       token: 'asldkfj',
       orderId: mongoose.Types.ObjectId().toHexString(),
     })
-    .expect(400);
+    .expect(404);
 });
 
 it('returns a 401 when purchasing an order that doesnt belong to the user', async () => {
