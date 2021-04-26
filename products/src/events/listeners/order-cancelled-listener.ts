@@ -12,7 +12,7 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent> {
     const product = await Product.findById(data.product.id);
 
     if (!product) {
-      throw new Error('Ticket not found');
+      throw new Error('Order not found');
     }
 
     product.set({ orderId: undefined });
@@ -23,6 +23,7 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent> {
       userId: product.userId,
       price: product.price,
       description: product.description,
+      imageURL: product.imageURL,
       title: product.title,
       version: product.version,
     });

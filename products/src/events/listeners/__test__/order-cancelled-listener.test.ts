@@ -13,6 +13,7 @@ const setup = async () => {
     title: 'concert',
     price: 20,
     description: "desc",
+    imageURL: 'sajdvgqaghfd',
     userId: 'asdf',
   });
   product.set({ orderId });

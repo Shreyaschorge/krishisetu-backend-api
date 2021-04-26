@@ -25,7 +25,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: shreyaschorge/krishisetu-orders
-      context: products
+      context: orders
       docker:
         dockerfile: Dockerfile
       sync:

@@ -28,6 +28,28 @@ it('returns an error if an invalid title is provided', async () => {
     .send({
       title: '',
       description: "aerf",
+      imageUrl: 'grfgc',
+      price: 10,
+    })
+    .expect(400);
+
+  await request(app)
+    .post('/api/products')
+    .set('Cookie', global.signin())
+    .send({
+      price: 10,
+    })
+    .expect(400);
+});
+
+it('returns an error if an image is provided', async () => {
+  await request(app)
+    .post('/api/products')
+    .set('Cookie', global.signin())
+    .send({
+      title: '',
+      description: "aerf",
+      imageUrl: '',
       price: 10,
     })
     .expect(400);
@@ -47,6 +69,8 @@ it('returns an error if an invalid price is provided', async () => {
     .set('Cookie', global.signin())
     .send({
       title: 'asldkjf',
+      description: "aerf",
+      imageUrl: 'drfgwreg',
       price: -10,
     })
     .expect(400);
@@ -65,6 +89,7 @@ it('creates a product with valid inputs', async () => {
   expect(products.length).toEqual(0);
 
   const title = 'asldkfj';
+  const imageURL = 'gkwhbgwkrbgkjqhrf';
   const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry..";
 
   await request(app)
@@ -73,6 +98,7 @@ it('creates a product with valid inputs', async () => {
     .send({
       title, 
       description,
+      imageURL,
       price: 20,
     })
     .expect(201);
@@ -81,11 +107,13 @@ it('creates a product with valid inputs', async () => {
   expect(products.length).toEqual(1);
   expect(products[0].price).toEqual(20);
   expect(products[0].title).toEqual(title);
+  expect(products[0].imageURL).toEqual(imageURL);
   expect(products[0].description).toEqual(description);
 });
 
 it('publishes an event', async () => {
   const title = 'asldkfj';
+  const imageURL = 'fkjbgwkfhbgw';
   const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
 
   await request(app)
@@ -94,6 +122,7 @@ it('publishes an event', async () => {
     .send({
       title,
       description,
+      imageURL,
       price: 20,
     })
     .expect(201);

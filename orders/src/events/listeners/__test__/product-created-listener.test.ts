@@ -14,6 +14,7 @@ const setup = async () => {
     version: 0,
     id: new mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
+    imageURL: 'imageURL',
     price: 10,
     description: 'desc',
     userId: new mongoose.Types.ObjectId().toHexString(),

@@ -11,6 +11,7 @@ it('marks an order as cancelled', async () => {
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'title',
     description: "desc",
+    imageURL: 'kjbdvfjkbdf',
     price: 20,
   });
   await product.save();
@@ -41,6 +42,7 @@ it('emits a order cancelled event', async () => {
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'title',
     description: "description",
+    imageURL: 'kjbdvfjkbdf',
     price: 20,
   });
   await product.save();
