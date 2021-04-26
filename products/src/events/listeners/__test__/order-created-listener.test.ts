@@ -14,6 +14,7 @@ const setup = async () => {
     title: 'concert',
     price: 99,
     description: "desc",
+    imageURL: 'jsdfkg',
     userId: 'asdf',
   });
   await product.save();

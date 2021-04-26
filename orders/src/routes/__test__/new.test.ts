@@ -19,6 +19,7 @@ it('returns an error if the product is already reserved', async () => {
   const product = Product.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
+    imageURL: 'kjbdvfjkbdf',
     description: "aefr",
     price: 20,
   });
@@ -42,6 +43,7 @@ it('reserves a product', async () => {
   const product = Product.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
+    imageURL: 'kjbdvfjkbdf',
     description: "erfreg",
     price: 20,
   });
@@ -58,6 +60,7 @@ it('emits an order created event', async () => {
   const product = Product.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
+    imageURL: 'kjbdvfjkbdf',
     description: "adfar",
     price: 20,
   });

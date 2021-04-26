@@ -14,8 +14,8 @@ export class ProductUpdatedListener extends Listener<ProductUpdatedEvent> {
       throw new Error('Product not found');
     }
 
-    const { title, price, description } = data;
-    product.set({ title, price, description });
+    const { title, price, description, imageURL } = data;
+    product.set({ title, price, description, imageURL });
     await product.save();
 
     msg.ack();

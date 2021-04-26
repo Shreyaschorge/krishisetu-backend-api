@@ -5,6 +5,7 @@ const createProduct = () => {
   return request(app).post('/api/products').set('Cookie', global.signin()).send({
     title: 'asldkf',
     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    imageURL: 'wkerjbgwkjer',
     price: 20,
   });
 };

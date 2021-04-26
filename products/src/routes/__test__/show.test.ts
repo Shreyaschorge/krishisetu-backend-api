@@ -11,6 +11,7 @@ it('returns a 404 if the product is not found', async () => {
 it('returns the product if the product is found', async () => {
   const title = 'concert';
   const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+  const imageURL = "hfbkjbhdfk";
   const price = 20;
 
   const response = await request(app)
@@ -19,6 +20,7 @@ it('returns the product if the product is found', async () => {
     .send({
       title,
       description,
+      imageURL,
       price,
     })
     .expect(201);
@@ -30,5 +32,6 @@ it('returns the product if the product is found', async () => {
 
   expect(productResponse.body.title).toEqual(title);
   expect(productResponse.body.description).toEqual(description);
+  expect(productResponse.body.imageURL).toEqual(imageURL);
   expect(productResponse.body.price).toEqual(price);
 });

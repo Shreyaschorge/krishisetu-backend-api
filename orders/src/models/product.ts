@@ -6,6 +6,7 @@ interface ProductAttrs {
   id: string;
   title: string;
   price: number;
+  imageURL: string;
   description: string;
 }
 
@@ -13,6 +14,7 @@ export interface ProductDoc extends mongoose.Document {
   title: string;
   price: number;
   description: string;
+  imageURL: string;
   version: number;
   // isReserved(): Promise<boolean>;
 }
@@ -39,6 +41,10 @@ const productSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
+    },
+    imageURL: {
+      type: String,
+      required: true
     }
   },
   {
@@ -65,6 +71,7 @@ productSchema.statics.build = (attrs: ProductAttrs) => {
     _id: attrs.id,
     title: attrs.title,
     price: attrs.price,
+    imageURL: attrs.imageURL,
     description: attrs.description
   });
 };

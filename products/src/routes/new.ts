@@ -15,22 +15,25 @@ router.post(
     body('price')
       .isFloat({ gt: 0 })
       .withMessage('Price must be greater than 0'),
-    body("description").not().isEmpty().isLength({min: 30}).withMessage("Text length must be greater than 30 characters")
+    body("description").not().isEmpty().isLength({ min: 30 }).withMessage("Text length must be greater than 30 characters"),
+    body("imageURL").not().isEmpty().withMessage("Upload Image")
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { title, price, description, quantity } = req.body;
+    const { title, price, description, quantity, imageURL } = req.body;
 
     const product = Product.build({
       title,
       price,
       description,
+      imageURL,
       userId: req.currentUser!.id,
     });
     await product.save();
     new ProductCreatedPublisher(natsWrapper.client).publish({
       id: product.id,
       title: product.title,
+      imageURL: product.imageURL,
       price: product.price,
       userId: product.userId,
       description: product.description,

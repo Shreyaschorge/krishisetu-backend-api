@@ -13,6 +13,7 @@ const setup = async () => {
   const product = Product.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'concert',
+    imageURL: 'imageURL',
     description: 'desc',
     price: 20,
   });
@@ -23,6 +24,7 @@ const setup = async () => {
     id: product.id,
     version: product.version + 1,
     title: 'new concert',
+    imageURL: 'new imageURL',
     price: 999,
     description: 'desc',
     userId: 'ablskdjf',
@@ -43,12 +45,13 @@ it('finds, updates, and saves a product', async () => {
 
   await listener.onMessage(data, msg);
 
-  const updatedTicket = await Product.findById(product.id);
+  const updatedProduct = await Product.findById(product.id);
 
-  expect(updatedTicket!.title).toEqual(data.title);
-  expect(updatedTicket!.price).toEqual(data.price);
-  expect(updatedTicket!.description).toEqual(data.description);
-  expect(updatedTicket!.version).toEqual(data.version);
+  expect(updatedProduct!.title).toEqual(data.title);
+  expect(updatedProduct!.price).toEqual(data.price);
+  expect(updatedProduct!.imageURL).toEqual(data.imageURL);
+  expect(updatedProduct!.description).toEqual(data.description);
+  expect(updatedProduct!.version).toEqual(data.version);
 });
 
 it('acks the message', async () => {

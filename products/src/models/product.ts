@@ -4,6 +4,7 @@ import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
 interface ProductAttrs {
   title: string;
   price: number;
+  imageURL: string;
   userId: string;
   description: string;
 }
@@ -11,6 +12,7 @@ interface ProductAttrs {
 interface ProductDoc extends mongoose.Document {
   title: string;
   price: number;
+  imageURL: string;
   description: string;
   userId: string;
   version: number;
@@ -34,6 +36,10 @@ const productSchema = new mongoose.Schema(
     description:{
       type: String,
       required: true,
+    },
+    imageURL: {
+      type: String,
+      required: true
     },
     userId: {
       type: String,

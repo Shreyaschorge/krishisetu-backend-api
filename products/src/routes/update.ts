@@ -42,6 +42,7 @@ router.put(
     product.set({
       title: req.body.title,
       price: req.body.price,
+      imageURL: req.body.imageURL,
       description: req.body.description,
     });
     await product.save();
@@ -49,6 +50,7 @@ router.put(
       id: product.id,
       title: product.title,
       price: product.price,
+      imageURL: product.imageURL,
       description: product.description,
       userId: product.userId,
       version: product.version,

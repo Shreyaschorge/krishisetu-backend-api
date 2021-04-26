@@ -70,7 +70,7 @@ it('returns a 201 with valid inputs', async () => {
   });
   await order.save();
 
-  console.log("price",price)
+  console.log("price", price)
 
   await request(app)
     .post('/api/payments')
@@ -82,6 +82,7 @@ it('returns a 201 with valid inputs', async () => {
     .expect(201);
 
   const stripeCharges = await stripe.charges.list({ limit: 50 });
+  // @ts-ignore
   const stripeCharge = stripeCharges.data.find((charge) => {
     return charge.amount === price * 100;
   });

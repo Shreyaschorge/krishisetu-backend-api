@@ -9,6 +9,7 @@ it('fetches the order', async () => {
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'rferg',
     description: "uygdfjgafkrf",
+    imageURL: 'kjbdvfjkbdf',
     price: 20,
   });
   await product.save();
@@ -37,6 +38,7 @@ it('returns an error if one user tries to fetch another users order', async () =
     id: mongoose.Types.ObjectId().toHexString(),
     title: 'rtgtget',
     description: "description",
+    imageURL: 'kjbdvfjkbdf',
     price: 20,
   });
   await product.save();
