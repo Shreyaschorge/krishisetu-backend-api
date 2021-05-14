@@ -4,6 +4,7 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@krishisetu/common';
 import { createProductRouter } from './routes/new';
+import { userProductsRouter } from './routes/userProducts';
 import { showProductRouter } from './routes/show';
 import { indexProductRouter } from './routes/index';
 import { updateProductRouter } from './routes/update';
@@ -21,6 +22,7 @@ app.use(
 app.use(currentUser);
 
 app.use(uploadImageRouter);
+app.use(userProductsRouter);
 app.use(indexProductRouter);
 app.use(createProductRouter);
 app.use(showProductRouter);

@@ -12,12 +12,16 @@ import { showOrderRouter } from './routes/show';
 const app = express();
 app.set('trust proxy', true);
 app.use(json());
+
+// set req.session property
 app.use(
   cookieSession({
     signed: false,
     secure: process.env.NODE_ENV !== 'test',
   })
 );
+
+// set req.currentUser property
 app.use(currentUser);
 
 app.use(deleteOrderRouter);
