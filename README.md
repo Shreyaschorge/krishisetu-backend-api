@@ -4,7 +4,7 @@ Krishisetu is a simple application build on the idea of loosely coupled micro-se
 
 Prerequisite to run the application
 
-[https://docs.docker.com/engine/install/](Docker), [https://kubernetes.io/docs/tasks/tools/](Kubernetes), [https://skaffold.dev/docs/install/](Skaffold), [https://kubernetes.github.io/ingress-nginx/](Ingress Controller) must be installed
+[Docker](https://docs.docker.com/engine/install/), [Kubernetes](https://kubernetes.io/docs/tasks/tools/), [Skaffold](https://skaffold.dev/docs/install/), [IngressController](https://kubernetes.github.io/ingress-nginx/) must be installed
 
 #### Steps to run the project
 
